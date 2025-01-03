@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Snippet Organizer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Code Organizer</h1>
+
+      <!-- Form to Add a New Snippet -->
+      <form id="snippet-form">
+        <textarea
+          id="snippet-input"
+          placeholder="Paste your code snippet here..."
+          required
+        ></textarea>
+        <input
+          type="text"
+          id="language-input"
+          placeholder="Language (e.g., Python, Go)"
+          required
+        />
+        <button type="submit">Save Snippet</button>
+      </form>
+
+      <!-- Display Saved Snippets -->
+      <div id="snippets-container">
+        <h2>Saved Snippets</h2>
+        <ul id="snippet-list"></ul>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

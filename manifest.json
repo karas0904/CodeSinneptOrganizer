@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Code Snippet Organizer",
+  "version": "1.0",
+  "description": "Organize your code snippets for easy access and use.",
+  "icons": {
+    "16": "icons/16x16.png",
+    "32": "icons/32x32.png",
+    "128": "icons/128x128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/16x16.png",
+      "32": "icons/32x32.png",
+      "128": "icons/128x128.png"
+    },
+    "default_size": {
+      "width": 400,
+      "height": 600
+    }
+  },
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

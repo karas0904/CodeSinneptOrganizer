@@ -1,0 +1,105 @@
+html,
+body {
+  width: 400px; /* Adjust width */
+  height: 600px; /* Adjust height */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center; /* Center-align content */
+}
+
+h1 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+textarea,
+input {
+  width: 90%; /* Adjust width to look better */
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 90%; /* Matches input width */
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#snippets-container {
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #ccc;
+  text-align: left; /* Align text properly */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#snippets-container h2 {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 10px;
+  margin: 5px 0;
+  background: #e9ecef; /* Softer color */
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li pre {
+  font-size: 12px;
+  margin: 0;
+  overflow: auto;
+}
+
+li span {
+  font-size: 12px;
+  color: #555;
+}
+
+li button {
+  background: #dc3545; /* Red for delete */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+li button:hover {
+  background: #b02a37;
+}
