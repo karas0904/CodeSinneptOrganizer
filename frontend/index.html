@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Snippet Organizer</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div id="container">
+      <!-- Top Section -->
+      <div id="header">
+        <img id="logo" src="icons/icon-32.png" alt="Logo" />
+        <div id="extension-name">Code Snip</div>
+        <img id="settings-icon" src="icons/setting-30.png" alt="Settings" />
+      </div>
+
+      <!-- White Box for Input -->
+      <div class="white-box">
+        <textarea
+          id="code-input"
+          placeholder="Paste your code here..."
+        ></textarea>
+        <button id="save-btn">Save Code</button>
+      </div>
+
+      <!-- Heading -->
+      <h2>Your Saviours</h2>
+
+      <!-- White Box for Table -->
+      <div class="white-box">
+        <table id="snippet-table">
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Language</th>
+              <th>Description</th>
+              <th>Time/Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rows will be dynamically inserted here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

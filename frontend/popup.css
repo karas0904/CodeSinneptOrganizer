@@ -1,0 +1,123 @@
+/* General Reset */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f9;
+}
+
+/* Container */
+#container {
+  width: 300px;
+  padding: 10px;
+}
+
+/* Header */
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+}
+
+#extension-name {
+  font-size: 18px; /* Slightly smaller font */
+  font-weight: bold;
+  color: #333;
+}
+
+#settings-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* White Box */
+.white-box {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+/* Textarea */
+#code-input {
+  width: 100%;
+  height: 150px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: none;
+  resize: none;
+  transition: border-color 0.3s ease;
+}
+
+#code-input:focus {
+  border-color: #0078ff;
+  box-shadow: 0 0 5px #0078ff;
+}
+
+/* Save Button */
+#save-btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(45deg, #0078ff, #00c6ff);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+#save-btn:hover {
+  background: linear-gradient(45deg, #005bb5, #0098cc);
+}
+
+/* Heading */
+h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #333;
+  text-align: center;
+}
+
+/* Table */
+#snippet-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  text-align: left;
+}
+
+#snippet-table th,
+#snippet-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+#snippet-table th {
+  background-color: #f4f4f9;
+  font-weight: bold;
+}
+
+#snippet-table td {
+  background-color: #ffffff;
+}
+
+#snippet-table tbody tr:hover {
+  background-color: #f1f9ff;
+}

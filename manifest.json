@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Code Snippet Organizer",
+  "version": "1.0",
+  "description": "Organize and save your code snippets.",
+  "action": {
+    "default_popup": "frontend/index.html",
+    "default_icon": "frontend/icons/icon-128.png"
+  },
+  "permissions": ["storage"],
+  "icons": {
+    "16": "frontend/icons/icon-16.png",
+    "32": "frontend/icons/icon-32.png",
+    "128": "frontend/icons/icon-128.png"
+  }
+}

@@ -1,0 +1,27 @@
+# Python bytecode files
+
+**pycache**/
+\*.pyc
+
+# Virtual environment
+
+venv/
+
+# IDEs
+
+.vscode/
+.idea/
+
+# Logs
+
+\*.log
+
+# .env files
+
+.env
+
+# Other files to ignore (e.g., models, large data, etc.)
+
+models/
+
+.DS_Store
