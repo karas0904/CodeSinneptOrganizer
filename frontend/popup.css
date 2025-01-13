@@ -121,3 +121,20 @@ h2 {
 #snippet-table tbody tr:hover {
   background-color: #f1f9ff;
 }
+
+#snippet-table td.icon-cell {
+  text-align: center;
+  width: 40px; /* Adjust as needed */
+}
+
+.copy-icon,
+.delete-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.copy-icon:hover,
+.delete-icon:hover {
+  opacity: 0.8;
+}
