@@ -5,6 +5,7 @@
 
 # Virtual environment
 
+code_snippet_venv/
 venv/
 
 # IDEs
