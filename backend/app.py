@@ -2,6 +2,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from models.language_detection import detect_language  # Import the language detection function
+from models.description_generator import generate_description
+
 
 app = FastAPI()
 
@@ -30,6 +32,7 @@ async def analyze_snippet(snippet: CodeSnippet):
 
     # Use the language detection model
     detected_language = detect_language(snippet.code)
+    description = generate_description(snippet.code)
     
     # Debug: Check the detected language
     print(f"Detected language: {detected_language}")
@@ -37,5 +40,5 @@ async def analyze_snippet(snippet: CodeSnippet):
     # Respond with the detected language and placeholder description
     return {
         "language": detected_language,
-        "description": "This is a sample description for the e."  # Placeholder value for now
+        "description": description
     }
