@@ -1,4 +1,4 @@
-from backend.models.description_generator import generate_description
+from models.description_generator import generate_description
 
 
 # Testing the description generator
