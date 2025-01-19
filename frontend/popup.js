@@ -99,7 +99,14 @@ saveBtn.addEventListener("click", async function () {
     // Debug: Check the language and description returned
     console.log("Detected language from backend:", language);
 
-    const timestamp = new Date().toLocaleString();
+    const timestamp = new Date().toLocaleString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false, // Optional: Set to `false` for 24-hour format
+      day: "2-digit",
+      month: "2-digit",
+      year: "2-digit",
+    });
 
     // Add the new snippet to the table
     addSnippetToTable(code, language, description, timestamp);
@@ -119,14 +126,25 @@ saveBtn.addEventListener("click", async function () {
 function addSnippetToTable(code, language, description, timestamp) {
   const newRow = document.createElement("tr");
 
+  // Create a pre and code block for syntax highlighting
+  const preElement = document.createElement("pre");
+  const codeElement = document.createElement("code");
+  codeElement.className = `language-${language.toLowerCase()}`; // Add language class
+  codeElement.textContent = code; // Add the actual code
+  preElement.appendChild(codeElement); // Nest code inside pre
+
   newRow.innerHTML = `
     <td><img src="icons/copy-64.png" class="icon copy-icon" /></td>
-    <td>${code}</td>
+    <td></td> <!-- This cell will be populated dynamically with the code block -->
     <td class="language-column">${language}</td>
     <td class="description-column">${description}</td>
     <td class="timestamp-column">${timestamp}</td>
     <td><img src="icons/trash-64.png" class="icon delete-icon" /></td>
   `;
+
+  // Insert the pre/code block into the correct cell
+  const codeCell = newRow.cells[1]; // Get the second cell for code
+  codeCell.appendChild(preElement); // Populate it with the pre/code block
 
   snippetTableBody.appendChild(newRow);
 
@@ -143,6 +161,9 @@ function addSnippetToTable(code, language, description, timestamp) {
     newRow.remove();
     removeSnippetFromStorage(code); // Update storage after deletion
   });
+
+  // Trigger Prism.js to highlight the newly added code
+  Prism.highlightElement(codeElement);
 }
 
 // Remove snippet from Chrome storage

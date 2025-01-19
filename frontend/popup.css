@@ -8,7 +8,7 @@ body {
 
 /* Container */
 #container {
-  width: 300px;
+  width: 580px;
   padding: 10px;
 }
 
@@ -20,15 +20,16 @@ body {
 }
 
 #logo {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 30px;
 }
 
 #extension-name {
-  font-size: 18px; /* Slightly smaller font */
+  font-size: 28px; /* Slightly smaller font */
   font-weight: bold;
   color: #333;
+  font-family: "Courier New", Courier, monospace;
 }
 
 #settings-icon {
@@ -100,7 +101,7 @@ h2 {
   align-items: center;
   justify-content: flex-start; /* Align to the left */
   gap: 15px; /* Space between heading and search icon */
-  font-size: 8px;
+  font-size: 10px;
   margin-bottom: -2px;
 }
 

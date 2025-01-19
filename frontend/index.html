@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Code Snippet Organizer</title>
     <link rel="stylesheet" href="popup.css" />
+    <link rel="stylesheet" href="prism.css" />
   </head>
   <body>
+    <style>
+      body {
+        width: 600px;
+        height: 800px;
+        overflow-y: auto; /* Optional: Adds a scrollbar if content overflows */
+      }
+    </style>
+
     <div id="container">
       <!-- Top Section -->
       <div id="header">
-        <img id="logo" src="icons/icon-32.png" alt="Logo" />
-        <div id="extension-name">Code Snip</div>
+        <img id="logo" src="icons/icon-128.png" alt="Logo" />
+        <div id="extension-name">Code Snip!</div>
         <img id="settings-icon" src="icons/setting-30.png" alt="Settings" />
       </div>
 
@@ -55,5 +64,6 @@
       </div>
     </div>
     <script src="popup.js"></script>
+    <script src="prism.js"></script>
   </body>
 </html>
