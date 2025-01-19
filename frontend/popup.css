@@ -43,7 +43,7 @@ body {
   border-radius: 10px;
   padding: 15px;
   margin-bottom: 15px;
-  margin-top: 15px;
+  margin-top: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow-x: auto;
 }
@@ -88,11 +88,37 @@ body {
 
 /* Heading */
 h2 {
-  font-size: 18px;
+  font-size: 10px;
   font-weight: bold;
   margin: 10px 0;
   color: #333;
   text-align: center;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align to the left */
+  gap: 15px; /* Space between heading and search icon */
+  font-size: 8px;
+  margin-bottom: -2px;
+}
+
+/* Search input box styling (if it's shown) */
+#search {
+  padding: 5px;
+  width: 200px; /* Adjust size as needed */
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#search-icon {
+  width: 30px; /* Adjust width as needed */
+  height: 30px; /* Adjust height as needed */
+  margin-left: auto; /* Pushes the icon to the right */
+  cursor: pointer; /* Makes the cursor pointer when hovering over the icon */
+  margin-bottom: 2px;
 }
 
 /* Table */

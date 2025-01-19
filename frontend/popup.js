@@ -2,6 +2,73 @@
 const saveBtn = document.getElementById("save-btn");
 const codeInput = document.getElementById("code-input");
 const snippetTableBody = document.querySelector("#snippet-table tbody");
+const searchIcon = document.getElementById("search-icon"); // Search icon
+const headerContainer = document.querySelector(".header-container"); // Container of the header
+
+// Event listener for the search icon click
+searchIcon.addEventListener("click", function () {
+  // Hide the search icon
+  searchIcon.style.display = "none";
+
+  // Create and append the search input box dynamically
+  const searchBox = document.createElement("input");
+  searchBox.type = "text";
+  searchBox.id = "search";
+  searchBox.placeholder = "Search by language or timestamp";
+  searchBox.style.padding = "5px";
+  searchBox.style.width = "100px";
+  searchBox.style.transition = "transform 0.3s ease-in-out"; // Smooth transition
+
+  // Position the search box where the icon is (adjust accordingly)
+  searchBox.style.position = "absolute";
+  searchBox.style.right = "10px"; // Position the search box on the right
+  searchBox.style.top = "0"; // Adjust top position if necessary
+
+  // Append the search box to the header container
+  headerContainer.appendChild(searchBox);
+
+  // Focus on the input box when it appears
+  searchBox.focus();
+
+  // Event listener to remove the search box when the user starts typing
+  searchBox.addEventListener("blur", function () {
+    if (searchBox.value.trim() === "") {
+      // Apply a transition effect before removing the search box
+      searchBox.style.transform = "translateX(100%)"; // Move search box out to the right
+
+      // Wait for the transition to end, then remove the element
+      setTimeout(function () {
+        searchBox.remove();
+        searchIcon.style.display = "inline";
+      }, 300); // 300ms matches the transition duration
+    }
+  });
+
+  // Filter the snippets based on the query in the search box
+  searchBox.addEventListener("input", function (event) {
+    const query = event.target.value.toLowerCase(); // Get the search query
+    filterSnippets(query); // Filter the snippets based on the query
+  });
+});
+
+// Filter snippets by search query (language or timestamp)
+function filterSnippets(query) {
+  const rows = snippetTableBody.querySelectorAll("tr");
+  rows.forEach((row) => {
+    const language = row
+      .querySelector(".language-column")
+      .textContent.toLowerCase();
+    const timestamp = row
+      .querySelector(".timestamp-column")
+      .textContent.toLowerCase();
+
+    if (language.includes(query) || timestamp.includes(query)) {
+      row.style.display = "";
+    } else {
+      row.style.display = "none";
+    }
+  });
+}
 
 // Event listener for the save button
 saveBtn.addEventListener("click", async function () {
@@ -10,7 +77,7 @@ saveBtn.addEventListener("click", async function () {
   // If there's no code, don't do anything
   if (!code) {
     alert("Please paste some code!");
-    return;
+    return; // Correct use of return
   }
 
   try {
@@ -27,6 +94,9 @@ saveBtn.addEventListener("click", async function () {
 
     const { language, description } = await response.json();
 
+    // Debug: Check the language and description returned
+    console.log("Detected language from backend:", language);
+
     const timestamp = new Date().toLocaleString();
 
     // Add the new snippet to the table
@@ -38,7 +108,7 @@ saveBtn.addEventListener("click", async function () {
     // Clear the textarea
     codeInput.value = "";
   } catch (error) {
-    console.error(error);
+    console.error("Fetch error:", error);
     alert("An error occurred while analyzing the snippet.");
   }
 });
@@ -50,9 +120,9 @@ function addSnippetToTable(code, language, description, timestamp) {
   newRow.innerHTML = `
     <td><img src="icons/copy-64.png" class="icon copy-icon" /></td>
     <td>${code}</td>
-    <td>${language}</td>
-    <td>${description}</td>
-    <td>${timestamp}</td>
+    <td class="language-column">${language}</td>
+    <td class="description-column">${description}</td>
+    <td class="timestamp-column">${timestamp}</td>
     <td><img src="icons/trash-64.png" class="icon delete-icon" /></td>
   `;
 
@@ -115,6 +185,7 @@ function saveTableToStorage() {
 function loadTableFromStorage() {
   chrome.storage.local.get("snippets", (result) => {
     if (result.snippets) {
+      console.log("Loaded snippets from storage:", result.snippets); // Debugging line
       result.snippets.forEach((snippet) => {
         addSnippetToTable(
           snippet.code,
@@ -123,6 +194,8 @@ function loadTableFromStorage() {
           snippet.timestamp
         );
       });
+    } else {
+      console.log("No snippets found in storage");
     }
   });
 }
