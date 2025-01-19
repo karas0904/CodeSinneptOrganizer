@@ -1,0 +1,36 @@
+def warehouse_organization(matrix, commands):
+    def swap_rows(r1, r2):
+        matrix[r1], matrix[r2] = matrix[r2], matrix[r1]
+
+    def swap_columns(c1, c2):
+        for i in range(len(matrix)):
+            matrix[i][c1], matrix[i][c2] = matrix[i][c2], matrix[i][c1]
+
+    def reverse_row(r):
+        matrix[r].reverse()
+
+    def reverse_column(c):
+        for i in range(len(matrix) // 2):
+            matrix[i][c], matrix[len(matrix) - i - 1][c] = matrix[len(matrix) - i - 1][c], matrix[i][c]
+
+    def rotate_90_clockwise():
+        nonlocal matrix
+        matrix = [list(reversed(col)) for col in zip(*matrix)]
+
+    for command in commands:
+        if command.startswith("swapRows"):
+            _, r1, r2 = command.split()
+            swap_rows(int(r1), int(r2))
+        elif command.startswith("swapColumns"):
+            _, c1, c2 = command.split()
+            swap_columns(int(c1), int(c2))
+        elif command.startswith("reverseRow"):
+            _, r = command.split()
+            reverse_row(int(r))
+        elif command.startswith("reverseColumn"):
+            _, c = command.split()
+            reverse_column(int(c))
+        elif command == "rotate90Clockwise":
+            rotate_90_clockwise()
+
+    return matrix
