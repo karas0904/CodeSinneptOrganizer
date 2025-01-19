@@ -143,6 +143,7 @@ h2 {
 
 #snippet-table td {
   background-color: #ffffff;
+  vertical-align: top;
 }
 
 #snippet-table tbody tr:hover {
@@ -152,6 +153,7 @@ h2 {
 #snippet-table td.icon-cell {
   text-align: center;
   width: 40px; /* Adjust as needed */
+  vertical-align: top;
 }
 
 .copy-icon,
