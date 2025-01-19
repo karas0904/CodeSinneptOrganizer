@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from models.language_detection import detect_language  # Import the language detection function
 
 app = FastAPI()
 
@@ -13,18 +14,28 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
+
 # Define the structure of the data received
 class CodeSnippet(BaseModel):
     code: str
 
-# Dummy endpoint for ML analysis
+# Endpoint for ML analysis
 @app.post("/analyze-snippet/")
 async def analyze_snippet(snippet: CodeSnippet):
     if not snippet.code.strip():
         raise HTTPException(status_code=400, detail="Code snippet cannot be empty")
     
-    # Dummy response (to be replaced with actual ML analysis later)
+    # Debug: Check the code received by the backend
+    print(f"Received code: {snippet.code}")
+
+    # Use the language detection model
+    detected_language = detect_language(snippet.code)
+    
+    # Debug: Check the detected language
+    print(f"Detected language: {detected_language}")
+
+    # Respond with the detected language and placeholder description
     return {
-        "language": "Python",  # Placeholder value
-        "description": "This is a sample description for the code."  # Placeholder value
+        "language": detected_language,
+        "description": "This is a sample description for the e."  # Placeholder value for now
     }
