@@ -16,13 +16,14 @@ searchIcon.addEventListener("click", function () {
   searchBox.id = "search";
   searchBox.placeholder = "Search by language or timestamp";
   searchBox.style.padding = "5px";
-  searchBox.style.width = "100px";
+  searchBox.style.width = "150px";
   searchBox.style.transition = "transform 0.3s ease-in-out"; // Smooth transition
+  searchBox.style.borderRadius = "50px";
 
   // Position the search box where the icon is (adjust accordingly)
   searchBox.style.position = "absolute";
   searchBox.style.right = "10px"; // Position the search box on the right
-  searchBox.style.top = "0"; // Adjust top position if necessary
+  // Adjust top position if necessary
 
   // Append the search box to the header container
   headerContainer.appendChild(searchBox);
@@ -33,8 +34,9 @@ searchIcon.addEventListener("click", function () {
   // Event listener to remove the search box when the user starts typing
   searchBox.addEventListener("blur", function () {
     if (searchBox.value.trim() === "") {
+      searchBox.style.width = "0";
       // Apply a transition effect before removing the search box
-      searchBox.style.transform = "translateX(100%)"; // Move search box out to the right
+      // Move search box out to the right
 
       // Wait for the transition to end, then remove the element
       setTimeout(function () {
